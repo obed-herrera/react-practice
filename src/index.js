@@ -24,10 +24,24 @@ class TarjetaFruta extends React.Component{
   constructor(){
     super()
 
+    this.agregar = this.agregar.bind(this)
+    this.quitar = this.quitar.bind(this)
     this.state = {
       cantidad: 0
     }
   }
+
+agregar (){
+  this.setState({
+    cantidad: this.state.cantidad + 1
+  })
+}
+
+quitar (){
+  this.setState({
+    cantidad: this.state.cantidad - 1
+  })
+}
 
   render (){
     return(
@@ -36,14 +50,30 @@ class TarjetaFruta extends React.Component{
         <hr/>
         <div>Cantidad: {this.state.cantidad}</div>
         <button
-          onClick={() =>{
+
+          /*onClick={() =>{
             /*this.state.cantidad = 100
             this.forceUpdate()
             this.setState({cantidad: this.state.cantidad + 1*/
-          this.setState({cantidad: this.state.cantidad +1})
-          }}
+          /*Arrow Function*/
+          /*this.setState({cantidad: this.state.cantidad + 1})
+        }}*/
+          onClick = {this.agregar}
         >
           Agregar
+        </button>
+        <button
+
+          /*onClick={() =>{
+            /*this.state.cantidad = 100
+            this.forceUpdate()
+            this.setState({cantidad: this.state.cantidad + 1*/
+          /*Arrow Function*/
+          /*this.setState({cantidad: this.state.cantidad + 1})
+        }}*/
+          onClick = {this.quitar}
+        >
+          Quitar
         </button>
         <p>${this.props.price}</p>
       </div>
