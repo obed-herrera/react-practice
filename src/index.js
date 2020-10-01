@@ -34,8 +34,17 @@ class TarjetaFruta extends React.Component{
       <div>
         <h3>{ this.props.name }</h3>
         <hr/>
-        <div>Cantidad: 0</div>
-        <button> Agregar </button>
+        <div>Cantidad: {this.state.cantidad}</div>
+        <button
+          onClick={() =>{
+            /*this.state.cantidad = 100
+            this.forceUpdate()
+            this.setState({cantidad: this.state.cantidad + 1*/
+          this.setState({cantidad: this.state.cantidad +1})
+          }}
+        >
+          Agregar
+        </button>
         <p>${this.props.price}</p>
       </div>
     )
