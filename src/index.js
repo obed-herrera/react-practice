@@ -1,17 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+/*
+const TarjetaFruta = (props) =>{
+  console.log(props)
+  return(<div>
+    <h3>{props.name} </h3>
+    <hr/>
+    <p>$ { props.price }</p>
+  </div>)
+}
+*/
+/*
+const App = () => (
+  <div>
+    <TarjetaFruta name = 'Sandia'  price = {2.00}/>
+    <TarjetaFruta name = 'Naranja' price = {3.52}/>
+    <TarjetaFruta name = 'Kiwi' price = {5.55}/>
+  </div>
+)
+*/
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class TarjetaFruta extends React.Component{
+  constructor(){
+    super()
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    this.state = {
+      cantidad: 0
+    }
+  }
+
+  render (){
+    return(
+      <div>
+        <h3>{ this.props.name }</h3>
+        <hr/>
+        <div>Cantidad: 0</div>
+        <button> Agregar </button>
+        <p>${this.props.price}</p>
+      </div>
+    )
+  }
+}
+
+const App = () => (
+  <div>
+    <TarjetaFruta name = {'Sandia'} price = {5.00} />
+    <TarjetaFruta name = {'Naranja'} price = {1.50} />
+    <TarjetaFruta name = 'Kiwi' price = {3.00} />
+  </div>
+)
+
+ReactDOM.render(<App />,document.getElementById('root'))
