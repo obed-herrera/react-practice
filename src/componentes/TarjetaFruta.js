@@ -43,13 +43,17 @@ limpiar (){
 
   render (){
 
+    const hasItems = this.state.cantidad > 0
     const styles = {
       border: '1px solid black',
       marginBottom: '1em',
       borderRadius: '0.50em',
       padding: '1em',
-      background: this.state.cantidad > 0 ? 'green' : '#FFF'
+      background: hasItems ? 'linear-gradient(45deg, black, #4a02f7)' : '#FFF' ,
+      color: hasItems ? '#FFF' : '#000',
+      transition: 'all 259ms ease-out'
     }
+
     return(
       <div style = {styles}>
         <h3>{ this.props.name }</h3>
