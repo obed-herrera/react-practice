@@ -42,8 +42,16 @@ limpiar (){
 }
 
   render (){
+
+    const styles = {
+      border: '1px solid black',
+      marginBottom: '1em',
+      borderRadius: '0.50em',
+      padding: '1em',
+      background: this.state.cantidad > 0 ? 'green' : '#FFF'
+    }
     return(
-      <div>
+      <div style = {styles}>
         <h3>{ this.props.name }</h3>
         <hr/>
         <div>Cantidad: {this.state.cantidad}</div>
