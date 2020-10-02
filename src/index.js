@@ -24,8 +24,19 @@ class TarjetaFruta extends React.Component{
   constructor(){
     super()
 
-    this.agregar = this.agregar.bind(this)
-    this.quitar = this.quitar.bind(this)
+    /*this.agregar = this.agregar.bind(this)
+    this.quitar = this.quitar.bind(this)*/
+
+    const METHODS = [
+      'agregar',
+      'quitar',
+      'limpiar'
+    ]
+
+    METHODS.forEach((method) => {
+      this[method] = this[method].bind(this)
+    });
+
     this.state = {
       cantidad: 0
     }
@@ -40,6 +51,12 @@ agregar (){
 quitar (){
   this.setState({
     cantidad: this.state.cantidad - 1
+  })
+}
+
+limpiar (){
+  this.setState({
+    cantidad: 0
   })
 }
 
@@ -60,7 +77,7 @@ quitar (){
         }}*/
           onClick = {this.agregar}
         >
-          Agregar
+          +
         </button>
         <button
 
@@ -73,7 +90,20 @@ quitar (){
         }}*/
           onClick = {this.quitar}
         >
-          Quitar
+          -
+        </button>
+        <button
+
+          /*onClick={() =>{
+            /*this.state.cantidad = 100
+            this.forceUpdate()
+            this.setState({cantidad: this.state.cantidad + 1*/
+          /*Arrow Function*/
+          /*this.setState({cantidad: this.state.cantidad + 1})
+        }}*/
+          onClick = {this.limpiar}
+        >
+          Limpiar
         </button>
         <p>${this.props.price}</p>
       </div>
