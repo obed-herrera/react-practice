@@ -1,4 +1,8 @@
 import React from 'react'
+//import './TarjetaFruta.css'
+import styles from './TarjetaFruta.module.css'
+
+
 
 class TarjetaFruta extends React.Component{
   constructor(){
@@ -44,18 +48,11 @@ limpiar (){
   render (){
 
     const hasItems = this.state.cantidad > 0
-    const styles = {
-      border: '1px solid black',
-      marginBottom: '1em',
-      borderRadius: '0.50em',
-      padding: '1em',
-      background: hasItems ? 'linear-gradient(45deg, black, #4a02f7)' : '#FFF' ,
-      color: hasItems ? '#FFF' : '#000',
-      transition: 'all 259ms ease-out'
-    }
+    const activeClass = hasItems ? 'card-active': ''
+    const clases = /*hasItems ? 'TarjetaFruta-activa' : 'TarjetaFruta'*/ `card ${activeClass}`
 
     return(
-      <div style = {styles}>
+      <div className = {styles.card}>
         <h3>{ this.props.name }</h3>
         <hr/>
         <div>Cantidad: {this.state.cantidad}</div>
@@ -99,6 +96,9 @@ limpiar (){
           Limpiar
         </button>
         <p>${this.props.price}</p>
+        <p>
+          Total: ${ this.props.price * this.state.cantidad }
+        </p>
       </div>
     )
   }
