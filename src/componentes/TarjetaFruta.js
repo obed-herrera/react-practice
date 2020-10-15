@@ -48,11 +48,11 @@ limpiar (){
   render (){
 
     const hasItems = this.state.cantidad > 0
-    const activeClass = hasItems ? 'card-active': ''
-    const clases = /*hasItems ? 'TarjetaFruta-activa' : 'TarjetaFruta'*/ `card ${activeClass}`
+    const activeClass = hasItems ? styles['card-active'] : ''
+    const clases = /*hasItems ? 'TarjetaFruta-activa' : 'TarjetaFruta'*/ /*`card ${activeClass}`*/ styles.card + ' ' + activeClass
 
     return(
-      <div className = {styles.card}>
+      <div className = {clases}>
         <h3>{ this.props.name }</h3>
         <hr/>
         <div>Cantidad: {this.state.cantidad}</div>
